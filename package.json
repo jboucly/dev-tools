@@ -25,7 +25,8 @@
     "config": {
         "forge": {
             "packagerConfig": {
-                "name": "Dev Tools"
+                "name": "Dev Tools",
+                "icon": "icons/dev-tools.icns"
             },
             "makers": [
                 {
@@ -39,14 +40,6 @@
                     "platforms": [
                         "darwin"
                     ]
-                },
-                {
-                    "name": "@electron-forge/maker-deb",
-                    "config": {}
-                },
-                {
-                    "name": "@electron-forge/maker-rpm",
-                    "config": {}
                 }
             ]
         }
