@@ -12,6 +12,7 @@ app.on('ready', function () {
             contextIsolation: false,
         }
     });
+
     mainWindow.loadFile('index.html');
     mainWindow.on('ready-to-show', function () {
         mainWindow.show();
