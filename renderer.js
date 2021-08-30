@@ -10,11 +10,13 @@ let tabGroup = new TabGroup({
 tabGroup.addTab({
     title: "Swaggger",
     src: "http://localhost:3000",
+    closable: false,
     visible: true,
     active: true,
 });
 
 tabGroup.addTab({
     title: "BDD",
+    closable: false,
     src: "http://localhost:3500",
 });
