@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "group": "build",
+            "problemMatcher": [],
+            "script": "start",
+            "label": "Start app on local",
+        },
+        {
+            "type": "npm",
+            "group": "build",
+            "script": "package",
+            "problemMatcher": [],
+            "label": "Compile app",
+        },
+        {
+            "type": "npm",
+            "group": "build",
+            "script": "make",
+            "problemMatcher": [],
+            "label": "Make app electron",
+        }
+    ]
+}
