@@ -5,7 +5,7 @@ export class Main {
 
     constructor() {
         this.createMainWindows();
-        this.setMenu();
+        // this.setMenu();
     }
 
     public createMainWindows(): void {
