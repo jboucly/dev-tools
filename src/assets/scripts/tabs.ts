@@ -60,21 +60,26 @@ class Tabs {
 
     private setLogicOnNewTab(): void {
         this.tabGroup.on('tab-added', (tab: Tab, tabGroup: TabGroup) => {
+            let isLoaded = false;
+            let titleIsSet = false;
+
             this.viewElement.style.display = 'none';
             this.loadingElement.style.display = 'block';
 
             this.setErrorLoadingEvent([tab]);
 
-            tab.webview.addEventListener('dom-ready', () => {
-                tab.webview.loadURL(`file://${__dirname}/src/views/new-tab.html`);
-
-                const title = tab.webview.getTitle();
-                if (!isNil(title) && title !== 'undefined') tab.setTitle(title);
-            });
-
             tab.webview.addEventListener('did-finish-load', () => {
-                this.viewElement.style.display = 'block';
-                this.loadingElement.style.display = 'none';
+                const title = tab.webview.getTitle();
+                if (!isNil(title) && title !== 'undefined' && !titleIsSet) tab.setTitle(title);
+
+                if (!isLoaded) {
+                    this.viewElement.style.display = 'block';
+                    this.loadingElement.style.display = 'none';
+
+                    tab.webview.loadURL(`file://${__dirname}/src/views/new-tab.html`);
+
+                    isLoaded = true;
+                }
             });
         });
 
