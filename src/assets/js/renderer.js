@@ -1,5 +1,4 @@
 const TabGroup = require("electron-tabs");
-const path = require('path');
 
 let tabGroup = new TabGroup({
     newTab: {
@@ -15,13 +14,13 @@ tabGroup.addTab({
     visible: true,
     closable: false,
     title: "Swaggger",
-    iconURL: 'icons/swagger.png',
+    iconURL: 'src/assets/icons/swagger.png',
     src: "http://localhost:3000",
 });
 
 tabGroup.addTab({
     title: "BDD",
     closable: false,
-    iconURL: 'icons/bdd.png',
+    iconURL: 'src/assets/icons/bdd.png',
     src: "http://localhost:3500",
 });

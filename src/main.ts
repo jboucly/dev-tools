@@ -1,9 +1,7 @@
+import { app, BrowserWindow } from "electron";
 
-const electron = require('electron');
-const app = electron.app;
-
-app.on('ready', function () {
-    const mainWindow = new electron.BrowserWindow({
+app.on('ready', () => {
+    const mainWindow = new BrowserWindow({
         width: 1280,
         height: 720,
         webPreferences: {
@@ -14,7 +12,7 @@ app.on('ready', function () {
     });
 
     mainWindow.loadFile('index.html');
-    mainWindow.on('ready-to-show', function () {
+    mainWindow.on('ready-to-show',  () => {
         mainWindow.show();
         mainWindow.focus();
     });
