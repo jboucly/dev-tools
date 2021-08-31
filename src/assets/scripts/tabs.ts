@@ -1,5 +1,6 @@
 import * as TabGroup from 'electron-tabs';
 import { Tab } from 'electron-tabs';
+import { isNil } from 'lodash';
 
 class Tabs {
     public tabGroup: TabGroup;
@@ -62,19 +63,18 @@ class Tabs {
             this.viewElement.style.display = 'none';
             this.loadingElement.style.display = 'block';
 
-            // TODO: Set page file
-            tab.webview.src = 'https://google.fr';
+            this.setErrorLoadingEvent([tab]);
+
+            tab.webview.addEventListener('dom-ready', () => {
+                tab.webview.loadURL(`file://${__dirname}/src/views/new-tab.html`);
+
+                const title = tab.webview.getTitle();
+                if (!isNil(title) && title !== 'undefined') tab.setTitle(title);
+            });
 
             tab.webview.addEventListener('did-finish-load', () => {
                 this.viewElement.style.display = 'block';
                 this.loadingElement.style.display = 'none';
-            });
-
-            tab.webview.addEventListener('did-fail-load', () => {
-                this.viewElement.style.display = 'block';
-                this.loadingElement.style.display = 'none';
-
-                tab.webview.loadURL(`file://${__dirname}/src/views/error-loading.html`);
             });
         });
 
