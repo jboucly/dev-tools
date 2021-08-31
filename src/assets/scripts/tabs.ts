@@ -1,3 +1,4 @@
+import { ConsoleMessageEvent } from 'electron';
 import * as TabGroup from 'electron-tabs';
 import { Tab } from 'electron-tabs';
 import { isNil } from 'lodash';
@@ -11,9 +12,9 @@ class Tabs {
     constructor() {
         this.initTabs();
         this.setErrorLoadingEvent(this.tabGroup.getTabs());
+        this.setWebviewEventConsole(this.tabGroup.getTabs());
         this.setLogicOnNewTab();
     }
-
 
     /**
      * @description Init dev tabs
@@ -58,6 +59,31 @@ class Tabs {
         });
     }
 
+    /**
+     * @description Set event console-message on all tabs
+     */
+    private setWebviewEventConsole(tabs: Tab[]): void {
+        tabs.forEach((tab: Tab) => {
+            tab.webview.addEventListener('console-message', (e: ConsoleMessageEvent) => {
+                console.info(`Webview ${tab.getTitle()} :`);
+                switch (e.level) {
+                    case 0:
+                        console.log(e.message);
+                        break;
+                    case 1:
+                        console.info(e.message);
+                        break;
+                    case 2:
+                        console.warn(e.message);
+                        break;
+                    case 3:
+                        console.error(e.message);
+                        break;
+                }
+            })
+        });
+    }
+
     private setLogicOnNewTab(): void {
         this.tabGroup.on('tab-added', (tab: Tab, tabGroup: TabGroup) => {
             let isLoaded = false;
@@ -67,6 +93,7 @@ class Tabs {
             this.loadingElement.style.display = 'block';
 
             this.setErrorLoadingEvent([tab]);
+            this.setWebviewEventConsole([tab]);
 
             tab.webview.addEventListener('did-finish-load', () => {
                 const title = tab.webview.getTitle();

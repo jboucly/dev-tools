@@ -24,6 +24,8 @@ export class Main {
             this.mainWindow.on("ready-to-show", () => {
                 this.mainWindow.show();
                 this.mainWindow.focus();
+
+                // this.mainWindow.webContents.openDevTools();
             });
         });
     }
