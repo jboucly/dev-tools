@@ -3,8 +3,10 @@ const path = require('path');
 
 let tabGroup = new TabGroup({
     newTab: {
+        active: true,
+        visible: true,
         title: "Nouvelle page",
-        src: 'https://google.fr'
+        src: 'https://google.fr',
     },
 });
 
