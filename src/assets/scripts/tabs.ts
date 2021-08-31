@@ -62,6 +62,7 @@ class Tabs {
             this.viewElement.style.display = 'none';
             this.loadingElement.style.display = 'block';
 
+            // TODO: Set page file
             tab.webview.src = 'https://google.fr';
 
             tab.webview.addEventListener('did-finish-load', () => {
