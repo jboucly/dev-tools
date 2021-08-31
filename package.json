@@ -4,6 +4,8 @@
     "description": "Tools for dev backend",
     "main": "dist/main.js",
     "scripts": {
+        "prebuild": "rimraf dist",
+        "prestart": "rimraf dist",
         "build": "tsc",
         "start": "tsc && electron-forge start",
         "package": "tsc && electron-forge package",

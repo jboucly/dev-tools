@@ -1,4 +1,5 @@
-const TabGroup = require("electron-tabs");
+import * as TabGroup from "electron-tabs";
+import { Tab } from "electron-tabs";
 
 let tabGroup = new TabGroup({
     newTab: {
@@ -23,4 +24,10 @@ tabGroup.addTab({
     closable: false,
     iconURL: 'src/assets/icons/bdd.png',
     src: "http://localhost:3500",
+});
+
+
+tabGroup.on("tab-added", (tab: Tab, tabGroup: TabGroup) => {
+    console.log(tab);
+    console.log(tabGroup);
 });
