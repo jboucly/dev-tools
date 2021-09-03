@@ -11,6 +11,13 @@
         {
             "type": "npm",
             "group": "build",
+            "problemMatcher": [],
+            "script": "start:watch",
+            "label": "Start app with raload on local",
+        },
+        {
+            "type": "npm",
+            "group": "build",
             "script": "package",
             "problemMatcher": [],
             "label": "Compile app",
