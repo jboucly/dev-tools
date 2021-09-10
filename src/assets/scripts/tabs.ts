@@ -80,7 +80,7 @@ class Tabs {
                         console.error(e.message);
                         break;
                 }
-            })
+            });
         });
     }
 
@@ -95,7 +95,7 @@ class Tabs {
             this.setErrorLoadingEvent([tab]);
             this.setWebviewEventConsole([tab]);
 
-            tab.webview.addEventListener('did-finish-load', () => {
+            tab.webview.addEventListener('did-stop-loading', () => {
                 const title = tab.webview.getTitle();
                 if (!isNil(title) && title !== 'undefined' && !titleIsSet) tab.setTitle(title);
 
@@ -109,9 +109,7 @@ class Tabs {
                 }
             });
         });
-
     }
-
 }
 
 new Tabs();
