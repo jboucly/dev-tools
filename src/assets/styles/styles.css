@@ -1,4 +1,4 @@
-@import url("../../../node_modules/electron-tabs/electron-tabs.css");
+@import url('../../../node_modules/electron-tabs/electron-tabs.css');
 
 .etabs-tabgroup {
     color: #fff;
@@ -33,4 +33,15 @@
 .etabs-views {
     color: #fff;
     border-top: 1px solid #69161d;
+}
+
+.go-back {
+    float: left;
+    font: caption;
+    padding: 6px 8px 7px;
+    background-color: #69161d;
+}
+
+.go-back img {
+    width: 20px;
 }

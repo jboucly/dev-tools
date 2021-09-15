@@ -1,5 +1,8 @@
 {
-    "watch": ["src"],
+    "watch": [
+        "src",
+        "index.html"
+    ],
     "exec": "npm run start",
     "ext": "ts,js,css,html"
 }
