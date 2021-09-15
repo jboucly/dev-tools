@@ -8,12 +8,14 @@ class Tabs {
 
     private viewElement = document.getElementById('views');
     private loadingElement = document.getElementById('spinner');
+    private goBackBtn = document.getElementById('goBack');
 
     constructor() {
         this.initTabs();
         this.setErrorLoadingEvent(this.tabGroup.getTabs());
         this.setWebviewEventConsole(this.tabGroup.getTabs());
         this.setLogicOnNewTab();
+        this.setLogicForGoBackBtn();
     }
 
     /**
@@ -108,6 +110,18 @@ class Tabs {
                     isLoaded = true;
                 }
             });
+        });
+    }
+
+    private setLogicForGoBackBtn(): void {
+        this.goBackBtn.addEventListener('click', () => {
+            const activeWebview = this.tabGroup.getActiveTab().webview;
+
+            console.info('Can go back :', activeWebview.canGoBack());
+
+            if (activeWebview.canGoBack()) {
+                activeWebview.goBack();
+            }
         });
     }
 }
