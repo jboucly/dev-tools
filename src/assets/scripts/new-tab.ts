@@ -5,25 +5,27 @@ function loadUrlOnWebview(url: string): void {
     document.location.href = url;
 }
 
-// ––– B ––– SEARCH INPUT ––––––––––––––––––––––––––––––––––––––––––––––––
+document.addEventListener('DOMContentLoaded', (event) => {
+    // ––– B ––– SEARCH INPUT ––––––––––––––––––––––––––––––––––––––––––––––––
 
-const ecosiaSearchInput = document.getElementById('ecosiaSearchInput') as HTMLInputElement;
-const searchEcosiaBtn = document.getElementById('search-ecosia-btn');
-const ecosiaUrl = 'https://www.ecosia.org/search?q=';
+    const googleSearchInput = document.getElementById('googleSearchInput') as HTMLInputElement;
+    const searchGoogleBtn = document.getElementById('searchGoogleBtn');
+    const googleUrl = 'https://www.google.com/search?q=';
 
-searchEcosiaBtn.addEventListener('click', () => {
-    loadUrlOnWebview(`${ecosiaUrl}${ecosiaSearchInput.value}`);
+    searchGoogleBtn.addEventListener('click', () => {
+        loadUrlOnWebview(`${googleUrl}${googleSearchInput.value}`);
+    });
+
+    // ––– E ––– SEARCH INPUT ––––––––––––––––––––––––––––––––––––––––––––––––
+
+    // ––– B ––– LOAD SERVER INPUT –––––––––––––––––––––––––––––––––––––––––––
+
+    const localServerInput = document.getElementById('localServerInput') as HTMLInputElement;
+    const localServerBtn = document.getElementById('localServerBtn');
+
+    localServerBtn.addEventListener('click', () => {
+        loadUrlOnWebview(localServerInput.value);
+    });
+
+    // ––– E ––– LOAD SERVER INPUT –––––––––––––––––––––––––––––––––––––––––––
 });
-
-// ––– E ––– SEARCH INPUT ––––––––––––––––––––––––––––––––––––––––––––––––
-
-// ––– B ––– LOAD SERVER INPUT –––––––––––––––––––––––––––––––––––––––––––
-
-const localServerInput = document.getElementById('localServerInput') as HTMLInputElement;
-const localServerBtn = document.getElementById('local-server-btn');
-
-localServerBtn.addEventListener('click', () => {
-    loadUrlOnWebview(localServerInput.value);
-});
-
-// ––– E ––– LOAD SERVER INPUT –––––––––––––––––––––––––––––––––––––––––––

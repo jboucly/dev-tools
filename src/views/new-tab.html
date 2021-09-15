@@ -6,29 +6,49 @@
         <title>Home</title>
     </head>
     <body>
-        <div class="vh-100 row">
-            <div class="vh-100 col-6 d-flex justify-content-center align-items-center align-self-center">
-                <label for="ecosiaSearchInput" class="form-label">Search on Ecosia :</label>
-                <div class="d-flex">
-                    <input
-                        type="text"
-                        class="ecosiaSearchInput form-control me-2"
-                        id="ecosiaSearchInput"
-                        placeholder="How to..."
-                    />
-                    <button type="submit" class="btn btn-primary" id="search-ecosia-btn">Search</button>
+        <div class="container my-5">
+            <h3>Dev Tools | New page</h3>
+            <hr />
+
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="h4 form-control-label" for="googleSearchInput">Search on Google :</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="i1"
+                            class="googleSearchInput form-control me-2"
+                            id="googleSearchInput"
+                            placeholder="How to..."
+                            required
+                        />
+                    </div>
+
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-secondary" id="searchGoogleBtn">Search</button>
+                    </div>
                 </div>
             </div>
-            <div class="vh-100 col-6 d-flex justify-content-center align-items-center align-self-center">
-                <label for="localServer" class="form-label">Open new local server :</label>
-                <div class="d-flex">
-                    <input
-                        type="text"
-                        class="form-control me-2"
-                        id="localServerInput"
-                        placeholder="http://localhost:4200"
-                    />
-                    <button type="submit" class="btn btn-primary" id="local-server-btn">Open</button>
+            <hr />
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="h4 form-control-label" for="localServerInput">Open new local server :</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="i1"
+                            class="ecosiaSearchInput form-control me-2"
+                            id="localServerInput"
+                            placeholder="http://localhost:4200"
+                            required
+                        />
+                    </div>
+
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-secondary" id="localServerBtn">Open</button>
+                    </div>
                 </div>
             </div>
         </div>
