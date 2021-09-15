@@ -27,6 +27,7 @@ class Tabs {
                 active: true,
                 visible: true,
                 title: 'New page',
+                src: `file://${__dirname}/src/views/new-tab.html`,
             },
         });
 
@@ -97,16 +98,13 @@ class Tabs {
             this.setErrorLoadingEvent([tab]);
             this.setWebviewEventConsole([tab]);
 
-            tab.webview.addEventListener('did-stop-loading', () => {
+            tab.webview.addEventListener('dom-ready', () => {
                 const title = tab.webview.getTitle();
                 if (!isNil(title) && title !== 'undefined' && !titleIsSet) tab.setTitle(title);
 
                 if (!isLoaded) {
                     this.viewElement.style.display = 'block';
                     this.loadingElement.style.display = 'none';
-
-                    tab.webview.loadURL(`file://${__dirname}/src/views/new-tab.html`);
-
                     isLoaded = true;
                 }
             });
