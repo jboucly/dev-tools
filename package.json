@@ -34,7 +34,7 @@
         "forge": {
             "packagerConfig": {
                 "name": "Dev Tools",
-                "icon": "icons/dev-tools.icns"
+                "icon": "src/assets/icons/dev-tools.icns"
             },
             "makers": [
                 {
