@@ -45,3 +45,14 @@
 .go-back img {
     width: 10px;
 }
+
+.reload {
+    float: left;
+    font: caption;
+    padding: 6px 8px 7px;
+    background-color: #69161d;
+}
+
+.reload img {
+    width: 10px;
+}

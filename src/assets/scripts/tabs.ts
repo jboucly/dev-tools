@@ -6,9 +6,10 @@ import { isNil } from 'lodash';
 class Tabs {
     public tabGroup: TabGroup;
 
+    private goBackBtn = document.getElementById('goBack');
+    private reloadBtn = document.getElementById('reload');
     private viewElement = document.getElementById('views');
     private loadingElement = document.getElementById('spinner');
-    private goBackBtn = document.getElementById('goBack');
 
     constructor() {
         this.initTabs();
@@ -16,6 +17,7 @@ class Tabs {
         this.setWebviewEventConsole(this.tabGroup.getTabs());
         this.setLogicOnNewTab();
         this.setLogicForGoBackBtn();
+        this.setLogicForReloadBtn();
     }
 
     /**
@@ -53,7 +55,9 @@ class Tabs {
      */
     public setErrorLoadingEvent(tabs: Tab[]): void {
         tabs.forEach((tab: Tab) => {
-            tab.webview.addEventListener('did-fail-load', () => {
+            tab.webview.addEventListener('did-fail-load', (event) => {
+                console.log(event);
+
                 this.viewElement.style.display = 'block';
                 this.loadingElement.style.display = 'none';
 
@@ -120,6 +124,13 @@ class Tabs {
             if (activeWebview.canGoBack()) {
                 activeWebview.goBack();
             }
+        });
+    }
+
+    private setLogicForReloadBtn(): void {
+        this.reloadBtn.addEventListener('click', () => {
+            const activeWebview = this.tabGroup.getActiveTab().webview;
+            activeWebview.reload();
         });
     }
 }
