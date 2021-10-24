@@ -3,7 +3,7 @@ name: Build, Quality, Test
 on: push
 
 jobs:
-    default:
+    Build-Quality-Test:
         container:
             image: node:12-alpine
 
@@ -16,7 +16,7 @@ jobs:
             - name: Cache modules
               uses: actions/cache@v1
               with:
-                  path: "**/node_modules"
+                  path: '**/node_modules'
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
             - name: Install dependencies
@@ -24,4 +24,3 @@ jobs:
 
             - name: Build
               run: npm run build
-
