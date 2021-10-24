@@ -56,8 +56,6 @@ class Tabs {
     public setErrorLoadingEvent(tabs: Tab[]): void {
         tabs.forEach((tab: Tab) => {
             tab.webview.addEventListener('did-fail-load', (event) => {
-                console.log(event);
-
                 this.viewElement.style.display = 'block';
                 this.loadingElement.style.display = 'none';
 
