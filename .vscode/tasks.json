@@ -6,28 +6,28 @@
             "group": "build",
             "problemMatcher": [],
             "script": "start",
-            "label": "Start app on local",
+            "label": "[START] - Start app on local"
         },
         {
             "type": "npm",
             "group": "build",
             "problemMatcher": [],
             "script": "start:watch",
-            "label": "Start app with raload on local",
+            "label": "[START] - Start app with raload on local"
         },
         {
             "type": "npm",
             "group": "build",
             "script": "package",
             "problemMatcher": [],
-            "label": "Compile app",
+            "label": "[BUILD] - Compile app"
         },
         {
             "type": "npm",
             "group": "build",
             "script": "make",
             "problemMatcher": [],
-            "label": "Make app electron",
+            "label": "[MAKE] -Make app electron"
         }
     ]
 }
