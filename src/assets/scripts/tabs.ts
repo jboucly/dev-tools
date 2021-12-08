@@ -36,15 +36,21 @@ class Tabs {
         this.tabGroup.addTab({
             active: true,
             visible: true,
-            closable: false,
-            title: 'Swaggger',
-            iconURL: 'src/assets/icons/swagger.png',
-            src: 'http://localhost:3000',
+            title: 'Front',
+            iconURL: 'src/assets/icons/angular.png',
+            src: 'http://localhost:4200',
         });
 
         this.tabGroup.addTab({
+            visible: true,
+            title: 'Swaggger',
+            iconURL: 'src/assets/icons/swagger.png',
+            src: 'http://localhost:3000/docs',
+        });
+
+
+        this.tabGroup.addTab({
             title: 'BDD',
-            closable: false,
             iconURL: 'src/assets/icons/bdd.png',
             src: 'http://localhost:3500',
         });
